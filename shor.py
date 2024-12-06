@@ -68,7 +68,7 @@ def shor(N):
     
     # ToDo botar o caso de N ser primo? é problemático?
 
-    for _ in range(N):
+    for _ in range(n): # ToDo entender esse for com esse valor, precisa?
         try:
             # 3. Caso onde gcd(a, N) > 1
             x = randint(2, N-1) #ToDo forçar sempre ser diferente dos que ja foram?
