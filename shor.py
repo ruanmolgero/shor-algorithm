@@ -1,7 +1,6 @@
 #import ket
 from math import log2
 from random import randint
-from sympy import isprime
 
 # 1. Se N for par, retorne o fator 2.
 # 2. Determine, de forma clássica, se N = a^b para a ≥ 1 e b ≥ 2.
@@ -13,6 +12,10 @@ from sympy import isprime
 # 5. Se r for ímpar ou, se r for par mas gr/2 ≡ −1(mod  N), volte para o passo (iii).
 #   Caso contrário, compute gcd(gr/2 − 1, N) e gcd(gr/2 + 1, N). Verifique se algum desses
 #   valores é um fator não trivial de N. Se for, retorne o fator. Senão, volte ao passo (iii)
+
+
+def isprime(N):
+    #ToDo
 
 
 def gcd(a, b):
