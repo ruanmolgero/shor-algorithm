@@ -40,10 +40,6 @@ def classic_order_finding(N, k):
     return count, restos
 
 
-def quantum_order_finding(N, a):
-    pass
-
-
 def shor(N):
     # 1. Caso Trivial
     print("Testando se não são casos triviais...")
@@ -65,19 +61,17 @@ def shor(N):
             return u2, 'a**b'
     
     print("Não são casos triviais. Prosseguindo...")
-    
-    # ToDo botar o caso de N ser primo? é problemático?
 
-    for _ in range(n): # ToDo entender esse for com esse valor, precisa?
+    while True:
         try:
             # 3. Caso onde gcd(a, N) > 1
-            x = randint(2, N-1) #ToDo forçar sempre ser diferente dos que ja foram?
+            x = randint(2, N-1)
             print(f"Número aleatório selecionado: {x}")
             g = gcd(x, N)
             if g > 1:
                 # O MDC achado não é um fator de N
                 print("Encontrado pelo GCD.")
-                return g, 'lucky'
+                return g, 'Encontrado pelo GCD.'
             
             r, restos = classic_order_finding(N, x)
             print(f"r = {r}")
@@ -104,9 +98,9 @@ def shor(N):
 
         except Exception as e:
             print(f"Ops, houve alguma exceção: {e}")
-            break
+            return e
 
-    return N, 'prime or failed'
+    return N, 'É primo'
 
 if __name__ == "__main__":
     # Ex que funciona para o algoritmo classico: N = 15 e x encontrado = 7
