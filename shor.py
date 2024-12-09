@@ -1,6 +1,7 @@
 #import ket
 from math import log2
 from random import randint
+
 from miller_rabin import isPrime
 
 # 1. Se N for par, retorne o fator 2.
@@ -56,9 +57,9 @@ def shor(N):
         u1 = int(2**x)
         u2 = u1 + 1
 
-        if u1**b == N:
+        if u1**b == N and isPrime(u1):
             return u1, 'a**b'
-        elif u2**b == N:
+        elif u2**b == N and isPrime(u2):
             return u2, 'a**b'
     
     if isPrime(N):
