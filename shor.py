@@ -1,6 +1,7 @@
 #import ket
 from math import log2
 from random import randint
+from sympy import isprime
 
 # 1. Se N for par, retorne o fator 2.
 # 2. Determine, de forma clássica, se N = a^b para a ≥ 1 e b ≥ 2.
@@ -41,6 +42,7 @@ def classic_order_finding(N, k):
 
 
 def shor(N):
+    print(f"N = {N}")
     # 1. Caso Trivial
     print("Testando se não são casos triviais...")
     if N % 2 == 0:
@@ -48,7 +50,6 @@ def shor(N):
 
     # 2. Caso onde N = a^b
     n = N.bit_length()  # limite superior para b
-    print(N)
     y = int(log2(N))
     for b in range(2, n+1):
         x = y/b
@@ -59,6 +60,9 @@ def shor(N):
             return u1, 'a**b'
         elif u2**b == N:
             return u2, 'a**b'
+    
+    if isprime(N):
+        return N, "N é primo"
     
     print("Não são casos triviais. Prosseguindo...")
 
